@@ -44,18 +44,14 @@ pip install pycrypto
 Make the connections as shown below.
 If it is necessary to change edit the file board_config.py
 
-| Ra-02 LoRa BOARD1 |  RaspPi GPIO  | Ra-02 LoRa BOARD2 |  RaspPi GPIO  |
-|:------------------|:--------------|:------------------|:-------------:|
-|        MOSI       | GPIO 10       |        MOSI       | GPIO 10       |
-|        MISO       | GPIO 9        |        MISO       | GPIO 9        |
-|     SCK (SCLK)    | GPIO 11       |     SCK (SCLK)    | GPIO 11       |
-|        NSS        | GPIO 8 (CE0)  |        NSS        | GPIO 7 (CE1)  |
-|     DIO0 (IRQ)    | GPIO 4        |     DIO0 (IRQ)    | GPIO 23       |
-|        DIO1       | GPIO 17       |        DIO1       | GPIO 24       |
-|        DIO2       | GPIO 18       |        DIO2       | GPIO 25       |
-|        DIO3       | GPIO 27       |        DIO3       | GPIO 5        |
-|     RST (Reset)   | GPIO 22       |     RST (Reset)   | GPIO 6        |
-|        LED        | GPIO 13       |        LED        | GPIO 19       |
+# Note that the BCOM numbering for the GPIOs is used.
+    DIO0 = 4   # RaspPi GPIO 4
+    DIO1 = 23   # RaspPi GPIO 17
+    DIO2 = 24   # RaspPi GPIO 18
+    DIO3 = 21   # RaspPi GPIO 27
+    RST  = 17   # RaspPi GPIO 22
+    LED  = 18   # RaspPi GPIO 13 connects to the LED and a resistor (1kohm or 330ohm)
+    SWITCH = 7  # RaspPi GPIO 4 connects to a switch - not necessary
 
 LED external with 1k ohm or 330ohm (optional)
 

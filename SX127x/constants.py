@@ -188,3 +188,12 @@ class REG:
         IMAGE_CAL          = 0x3B
         DIO_MAPPING_1      = 0x40
         DIO_MAPPING_2      = 0x41
+
+
+@add_lookup
+class SPI_BAUD_RATE:
+    MAX_SPEED_HZ = 5000
+
+@add_lookup
+class SPI_MODE:
+    SPI_MODE = 0b01

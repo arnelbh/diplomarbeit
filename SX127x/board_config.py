@@ -34,12 +34,12 @@ class BOARD:
     """
     # Note that the BCOM numbering for the GPIOs is used.
     DIO0 = 4   # RaspPi GPIO 4
-    DIO1 = 17   # RaspPi GPIO 17
-    DIO2 = 18   # RaspPi GPIO 18
-    DIO3 = 27   # RaspPi GPIO 27
-    RST  = 22   # RaspPi GPIO 22
-    LED  = 13   # RaspPi GPIO 13 connects to the LED and a resistor (1kohm or 330ohm)
-    #SWITCH = 4  # RaspPi GPIO 4 connects to a switch - not necessary
+    DIO1 = 23   # RaspPi GPIO 17
+    DIO2 = 24   # RaspPi GPIO 18
+    DIO3 = 21   # RaspPi GPIO 27
+    RST  = 17   # RaspPi GPIO 22
+    LED  = 18   # RaspPi GPIO 13 connects to the LED and a resistor (1kohm or 330ohm)
+    SWITCH = 7  # RaspPi GPIO 4 connects to a switch - not necessary
 
     # The spi object is kept here
     spi = None
@@ -49,7 +49,8 @@ class BOARD:
     # tell pySX127x here whether the attached RF module uses low-band (RF*_LF pins) or high-band (RF*_HF pins).
     # low band (called band 1&2) are 137-175 and 410-525
     # high band (called band 3) is 862-1020
-    low_band = True
+    low_band = False
+    high_band = True
 
     @staticmethod
     def setup():

@@ -77,6 +77,8 @@ def setter(register_address):
 class LoRa(object):
 
     spi = BOARD.SpiDev()              # init and get the baord's SPI
+    spi.max_speed_hz = SPI_BAUD_RATE.MAX_SPEED_HZ
+    spi.mode = SPI_MODE.SPI_MODE
     mode = None                       # the mode is backed up here
     backup_registers = []
     verbose = True

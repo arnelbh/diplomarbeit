@@ -52,8 +52,12 @@ class mylora(LoRa):
         #print(bytes(payload).decode("utf-8",'ignore')) # Receive DATA
         data_rec = bytes(payload).decode("utf-8",'ignore') # Receive DATA
         print(data_rec)
-        soil_hum_rec, air_hum_rec, air_temp_rec = data_rec.split(' ')
+        #soil_hum_rec, air_hum_rec, air_temp_rec = data_rec.split(' ')
+        #soil_hum_rec = data_rec.split(' ')
 
+        soil_hum_rec = data_rec
+        air_hum_rec = "48"
+        air_temp_rec = "28"
 
         json_body = [
             {
@@ -75,7 +79,8 @@ class mylora(LoRa):
         #BOARD.led_off()
         #time.sleep(2) # Wait for the client be ready
         #print ("Send: ACK")
-        data_str = "ACK"
+        # Plava Zuta zelena crvena
+        data_str = "0000"
         print ("Send: ", data_str)
         data_bytes = list(bytes(data_str, encoding='utf-8'))
 

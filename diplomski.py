@@ -78,8 +78,8 @@ class mylora(LoRa):
 
         # Open database connection
         connection = pymysql.connect(host='localhost',
-                             user='root',
-        #                     password='passwd',
+                             user='arnel',
+                            password='ah87ba',
                              database='gh',
                              charset='utf8mb4',
                              cursorclass=pymysql.cursors.DictCursor)

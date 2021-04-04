@@ -27,6 +27,7 @@ from SX127x.LoRa import *
 from SX127x.board_config import BOARD
 from influxdb import InfluxDBClient
 
+import pymysql.cursors
 
 BOARD.setup()
 BOARD.reset()
@@ -75,12 +76,39 @@ class mylora(LoRa):
 
         client.write_points(json_body)
 
+        # Open database connection
+        connection = pymysql.connect(host='localhost',
+                             user='root',
+        #                     password='passwd',
+                             database='gh',
+                             charset='utf8mb4',
+                             cursorclass=pymysql.cursors.DictCursor)
+
+        with connection:
+            #with connection.cursor() as cursor:
+                # Create a new record
+            #    sql = "SELECT * FROM "act""
+            #    cursor.execute(sql)
+
+            # connection is not autocommit by default. So you must commit to save
+            # your changes.
+            #connection.commit()
+
+            with connection.cursor() as cursor:
+                # Read a single record
+                sql = "SELECT * FROM `act`"
+                cursor.execute(sql)
+                result = cursor.fetchone()
+            #    print(result)
+        
+
 
         #BOARD.led_off()
         #time.sleep(2) # Wait for the client be ready
         #print ("Send: ACK")
         # Plava Zuta zelena crvena
-        data_str = "0000"
+        #data_str = "0000"
+        data_str = str(result['act1']) + str(result['act2']) + str(result['act3']) + str(result['act4']) + str(result['behelterMax']) + str(result['behelterMin']) + str(result['tempMax']) + str(result['tempMin'])
         print ("Send: ", data_str)
         data_bytes = list(bytes(data_str, encoding='utf-8'))
 

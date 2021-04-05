@@ -18,7 +18,7 @@ if ($result->num_rows > 0) {
 // output data of each row
 
 $row = $result->fetch_assoc();
-echo "act: " . $row["act1"] . " " . $row["act2"] . " " . $row["act3"] . " " . $row["act4"] . " " . $row["behelterMax"] . " " . $row["behelterMin"] . " " . $row["tempMax"] . " " . $row["tempMin"] . "<br>";
+echo $row["act1"] . " " . $row["act2"] . " " . $row["act3"] . " " . $row["act4"] . " " . $row["behelterNiveau"] . " " . $row["behelterMax"] . " " . $row["behelterMin"] . " " . $row["tempNiveau"] . " " . $row["tempMax"] . " " . $row["tempMin"];
 
 } else {
 echo "0 results";

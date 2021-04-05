@@ -30,9 +30,9 @@
 		body {
 		  font-family: "Archivo Narrow";
 		}
-		#chartdiv {
+		#chartdiv, #chartdiv_temp {
 		  width: 100%;
-		  height: 100%;
+		  height: 220px;
 		}
 	</style>
 	
@@ -128,6 +128,94 @@
 		}
 
 		echo "<hr>";
+		
+		
+
+		echo "</div>";
+		echo "<h3>Behälter</h3>";
+
+		echo "<div class='row'>";
+		
+		$behaelterMax = "behelterMax";
+		$behaelterMin = "behelterMin";
+		$tempMax = "tempMax";
+		$tempMin = "tempMin";
+		
+		$current_BehaelterMax = $row['behelterMax'];
+		$current_BehaelterMin = $row['behelterMin'];
+		$current_TempMax = $row['tempMax'];
+		$current_TempMin = $row['tempMin'];
+		
+		
+		echo "<div class='col-sm'>
+		<form action= update_values.php method= 'post'>
+		<p>Behälter Min:</p>
+		<div class='progress' style='height: 15px;'>
+
+		<div class='progress-bar bg-warning' role='progressbar' style='width: $current_BehaelterMin%;' aria-valuenow='$current_BehaelterMin' aria-valuemin='0' aria-valuemax='100'>$current_BehaelterMin%</div>
+		</div><br>
+
+		<input type='range' name='value' class='form-range' min='0' max='100' step='5' value=$current_BehaelterMin id='customRange2'>
+
+		<input type='hidden' name='unit' style='width: 120px;' value=$unit_id >
+		<input type='hidden' name='column' style='width: 120px; width: 120px;' value=$behaelterMin >
+		<input type= 'submit' name= 'change_but' style='width: 120px; text-align:center;' value='Ändern'></form>
+		</div>";
+
+
+		echo "<div class='col-sm'>
+		<form action= update_values.php method= 'post'>
+		<p>Behälter Max:</p>
+		<div class='progress' style='height: 15px;'>
+		<div class='progress-bar' role='progressbar' style='width: $current_BehaelterMax%;' aria-valuenow='$current_BehaelterMax' aria-valuemin='0' aria-valuemax='100'>$current_BehaelterMax%</div>
+		</div><br>
+
+		<input type='range' name='value' class='form-range' min='0' max='100' step='5' value=$current_BehaelterMax id='customRange2'>
+		
+		<input type='hidden' name='unit' style='width: 120px;' value=$unit_id >
+		<input type='hidden' name='column' style='width: 120px;' value=$behaelterMax >
+		<input type= 'submit' name= 'change_but' style='width: 120px; text-align:center;' value='Ändern'></form>
+		</div>";
+		
+
+		echo "</div>";
+		echo"<hr>";
+		echo "<div class='row'>";
+		echo "<h3>Temperatur</h3>";
+		
+		
+		
+		echo "<div class='col-sm'>
+		<form action= update_values.php method= 'post'>
+		<p>Temperatur Min:</p>
+		<div class='progress' style='height: 15px;'>
+		<div class='progress-bar bg-warning' role='progressbar' style='width: $current_TempMin%;' aria-valuenow='$current_TempMin' aria-valuemin='0' aria-valuemax='100'>$current_TempMin °C</div>
+		</div><br>
+
+		<input type='range' name='value' class='form-range' min='0' max='100' value=$current_TempMin id='customRange2'>
+
+		<input type='hidden' name='unit' style='width: 120px;' value=$unit_id >
+		<input type='hidden' name='column' style='width: 120px;' value=$tempMin >
+		<input type= 'submit' name= 'change_but' style='width: 120px; text-align:center;' value='Ändern'></form>
+		</div>";
+
+		echo "<div class='col-sm'>
+		<form action= update_values.php method= 'post'>
+		<p>Temperatur Max:</p>
+		<div class='progress' style='height: 15px;'>
+		<div class='progress-bar' role='progressbar' style='width: $current_TempMax%;' aria-valuenow='$current_TempMax' aria-valuemin='0' aria-valuemax='100'>$current_TempMax °C</div>
+		</div><br>
+
+		<input type='range' name='value' class='form-range' min='0' max='100' value=$current_TempMax id='customRange2'>
+
+		<input type='hidden' name='unit' style='width: 120px;' value=$unit_id >
+		<input type='hidden' name='column' style='width: 120px;' value=$tempMax >
+		<input type= 'submit' name= 'change_but' style='width: 120px; text-align:center;' value='Ändern'></form>
+		</div>";
+		
+		
+		echo "</div><hr>";
+
 		echo "<h3>Actuators</h3>";
 		echo "<div class='row' >";
 		echo "<div class='col'>
@@ -170,93 +258,7 @@
 		<input type='hidden' name='unit' value=$unit_id >
 		<input type='hidden' name='column' value=$act4 >
 		<input type= 'submit' name= 'change_but' class = '$button_class_act_4' value=$text_current_act_4></form>
-		</div>";
-		
-
-		echo "</div><hr>";
-		echo "<h3>Behälter</h3>";
-
-		echo "<div class='row'>";
-		
-		$behaelterMax = "behelterMax";
-		$behaelterMin = "behelterMin";
-		$tempMax = "tempMax";
-		$tempMin = "tempMin";
-		
-		$current_BehaelterMax = $row['behelterMax'];
-		$current_BehaelterMin = $row['behelterMin'];
-		$current_TempMax = $row['tempMax'];
-		$current_TempMin = $row['tempMin'];
-		
-		
-		echo "<div class='col-sm'>
-		<form action= update_values.php method= 'post'>
-		<p>Behälter Min:</p>
-		<div class='progress' style='height: 40px;'>
-
-		<div class='progress-bar bg-warning progress-bar-striped progress-bar-animated' role='progressbar' style='width: $current_BehaelterMin%;' aria-valuenow='$current_BehaelterMin' aria-valuemin='0' aria-valuemax='100'>$current_BehaelterMin%</div>
-		</div><br>
-
-		<input type='range' name='value' class='form-range' min='0' max='100' step='5' value=$current_BehaelterMin id='customRange2'>
-
-		<input type='hidden' name='unit' style='width: 120px;' value=$unit_id >
-		<input type='hidden' name='column' style='width: 120px; width: 120px;' value=$behaelterMin >
-		<input type= 'submit' name= 'change_but' style='width: 120px; text-align:center;' value='Ändern'></form>
-		</div>";
-
-
-		echo "<div class='col-sm'>
-		<form action= update_values.php method= 'post'>
-		<p>Behälter Max:</p>
-		<div class='progress' style='height: 40px;'>
-		<div class='progress-bar progress-bar-striped progress-bar-animated' role='progressbar' style='width: $current_BehaelterMax%;' aria-valuenow='$current_BehaelterMax' aria-valuemin='0' aria-valuemax='100'>$current_BehaelterMax%</div>
-		</div><br>
-
-		<input type='range' name='value' class='form-range' min='0' max='100' step='5' value=$current_BehaelterMax id='customRange2'>
-		
-		<input type='hidden' name='unit' style='width: 120px;' value=$unit_id >
-		<input type='hidden' name='column' style='width: 120px;' value=$behaelterMax >
-		<input type= 'submit' name= 'change_but' style='width: 120px; text-align:center;' value='Ändern'></form>
-		</div>";
-		
-
-		echo "</div>";
-		echo"<hr>";
-		echo "<div class='row'>";
-		echo "<h3>Temperatur</h3>";
-		
-		
-		
-		echo "<div class='col-sm'>
-		<form action= update_values.php method= 'post'>
-		<p>Temperatur Min:</p>
-		<div class='progress' style='height: 15px;'>
-		<div class='progress-bar bg-warning progress-bar-striped progress-bar-animated' role='progressbar' style='width: $current_TempMin%;' aria-valuenow='$current_TempMin' aria-valuemin='0' aria-valuemax='100'>$current_TempMin °C</div>
-		</div><br>
-
-		<input type='range' name='value' class='form-range' min='0' max='100' value=$current_TempMin id='customRange2'>
-
-		<input type='hidden' name='unit' style='width: 120px;' value=$unit_id >
-		<input type='hidden' name='column' style='width: 120px;' value=$tempMin >
-		<input type= 'submit' name= 'change_but' style='width: 120px; text-align:center;' value='Ändern'></form>
-		</div>";
-
-		echo "<div class='col-sm'>
-		<form action= update_values.php method= 'post'>
-		<p>Temperatur Max:</p>
-		<div class='progress' style='height: 15px;'>
-		<div class='progress-bar progress-bar-striped progress-bar-animated' role='progressbar' style='width: $current_TempMax%;' aria-valuenow='$current_TempMax' aria-valuemin='0' aria-valuemax='100'>$current_TempMax °C</div>
-		</div><br>
-
-		<input type='range' name='value' class='form-range' min='0' max='100' value=$current_TempMax id='customRange2'>
-
-		<input type='hidden' name='unit' style='width: 120px;' value=$unit_id >
-		<input type='hidden' name='column' style='width: 120px;' value=$tempMax >
-		<input type= 'submit' name= 'change_but' style='width: 120px; text-align:center;' value='Ändern'></form>
-		</div>";
-		
-		
-		echo "</div><hr>";
+		</div><hr>";
 
 	?>
 

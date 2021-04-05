@@ -189,10 +189,10 @@
 		<form action= update_values.php method= 'post'>
 		<p>Temperatur Min:</p>
 		<div class='progress' style='height: 15px;'>
-		<div class='progress-bar bg-warning' role='progressbar' style='width: $current_TempMin%;' aria-valuenow='$current_TempMin' aria-valuemin='0' aria-valuemax='100'>$current_TempMin °C</div>
+		<div class='progress-bar bg-warning' role='progressbar' style='width: $current_TempMin%;' aria-valuenow='$current_TempMin' aria-valuemin='0' aria-valuemax='50'>$current_TempMin °C</div>
 		</div><br>
 
-		<input type='range' name='value' class='form-range' min='0' max='100' value=$current_TempMin id='customRange2'>
+		<input type='range' name='value' class='form-range' min='0' max='50' value=$current_TempMin id='customRange2'>
 
 		<input type='hidden' name='unit' style='width: 120px;' value=$unit_id >
 		<input type='hidden' name='column' style='width: 120px;' value=$tempMin >
@@ -203,10 +203,10 @@
 		<form action= update_values.php method= 'post'>
 		<p>Temperatur Max:</p>
 		<div class='progress' style='height: 15px;'>
-		<div class='progress-bar' role='progressbar' style='width: $current_TempMax%;' aria-valuenow='$current_TempMax' aria-valuemin='0' aria-valuemax='100'>$current_TempMax °C</div>
+		<div class='progress-bar' role='progressbar' style='width: $current_TempMax%;' aria-valuenow='$current_TempMax' aria-valuemin='0' aria-valuemax='50'>$current_TempMax °C</div>
 		</div><br>
 
-		<input type='range' name='value' class='form-range' min='0' max='100' value=$current_TempMax id='customRange2'>
+		<input type='range' name='value' class='form-range' min='0' max='50' value=$current_TempMax id='customRange2'>
 
 		<input type='hidden' name='unit' style='width: 120px;' value=$unit_id >
 		<input type='hidden' name='column' style='width: 120px;' value=$tempMax >
